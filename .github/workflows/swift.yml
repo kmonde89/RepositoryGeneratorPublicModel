@@ -19,6 +19,6 @@ jobs:
       with:
         swift-version: "5.8"
     - name: Build
-      run: swift build -v --package-path RepositoryGeneratorPublicModel
+      run: swift build -v
     - name: Run tests
-      run: swift test -v --package-path RepositoryGeneratorPublicModel
+      run: swift test -v
