@@ -62,22 +62,22 @@ extension Array<RepositoryGeneratorPublicModel.Parameter> {
             .joined(separator: ", ")
     }
     
-    public func testSignatureDescription(_ spacingLevel: UInt = 2) -> String {
-        let spacing = (0..<spacingLevel)
+    public func testSignatureDescription(_ indentationLevel: UInt = 2) -> String {
+        let indentation = (0..<indentationLevel)
             .map { _ in "\t" }
             .joined()
         return self
-            .map { spacing + $0.signatureDescription }
+            .map { indentation + $0.signatureDescription }
             .joined(separator: ",\n")
     }
     
-    public func customInputCallDescription(_ spacingLevel: UInt = 3) -> String {
+    public func customInputCallDescription(_ indentationLevel: UInt = 3) -> String {
         guard !self.isEmpty else { return "" }
-        let spacing = (0..<spacingLevel)
+        let indentation = (0..<indentationLevel)
             .map { _ in "\t" }
             .joined()
         return self
-            .map { spacing + $0.customInputCallDescription }
+            .map { indentation + $0.customInputCallDescription }
             .joined(separator: ",\n")
     }
 }
