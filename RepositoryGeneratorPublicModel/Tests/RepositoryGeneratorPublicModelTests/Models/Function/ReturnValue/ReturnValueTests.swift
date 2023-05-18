@@ -76,8 +76,8 @@ final class ReturnValueTests: XCTestCase {
 
 
     func createTestCase(
-        given returnValue: ReturnValue,
-        then: (_ returnValue: ReturnValue) throws -> Void
+        given returnValue: RepositoryGeneratorPublicModel.ReturnValue,
+        then: (_ returnValue: RepositoryGeneratorPublicModel.ReturnValue) throws -> Void
     ) throws {
         try then(returnValue)
     }

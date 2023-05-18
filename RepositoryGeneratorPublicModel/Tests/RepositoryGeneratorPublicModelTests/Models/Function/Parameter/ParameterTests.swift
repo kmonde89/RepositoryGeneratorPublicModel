@@ -89,8 +89,8 @@ final class ParameterTests: XCTestCase {
         name: String,
         originalName: String? = nil,
         type: String,
-        then: (_ parameter: Parameter) throws -> Void ) throws {
-            let parameter = Parameter(
+        then: (_ parameter: RepositoryGeneratorPublicModel.Parameter) throws -> Void ) throws {
+            let parameter = RepositoryGeneratorPublicModel.Parameter(
                 label: label,
                 name: name,
                 originalName: originalName,
@@ -179,17 +179,17 @@ final class ParameterTests: XCTestCase {
         label: String?,
         name: String = "name",
         type: String = "String",
-        then: (_ parameters: [Parameter]) throws -> Void ) throws {
+        then: (_ parameters: [RepositoryGeneratorPublicModel.Parameter]) throws -> Void ) throws {
             let parameters = (0..<itemsCount)
                 .map {
                     guard let label else {
-                        return Parameter(
+                        return RepositoryGeneratorPublicModel.Parameter(
                             label: nil,
                             name: "\(name)\($0 + 1)",
                             originalName: nil,
                             type: type)
                     }
-                    return Parameter(
+                    return RepositoryGeneratorPublicModel.Parameter(
                         label: "\(label)\($0 + 1)",
                         name: "\(name)\($0 + 1)",
                         originalName: nil,
