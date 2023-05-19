@@ -8,7 +8,7 @@
 import Foundation
 
 extension RepositoryGeneratorPublicModel {
-    public struct Parameter {
+    public struct Parameter: Hashable {
         public let label: String?
         public let name: String
         public let originalName: String
@@ -63,9 +63,7 @@ extension Array<RepositoryGeneratorPublicModel.Parameter> {
     }
     
     public func testSignatureDescription(_ indentationLevel: UInt = 2) -> String {
-        let indentation = (0..<indentationLevel)
-            .map { _ in "\t" }
-            .joined()
+        let indentation = createIndentation(indentationLevel)
         return self
             .map { indentation + $0.signatureDescription }
             .joined(separator: ",\n")
@@ -73,9 +71,7 @@ extension Array<RepositoryGeneratorPublicModel.Parameter> {
     
     public func customInputCallDescription(_ indentationLevel: UInt = 3) -> String {
         guard !self.isEmpty else { return "" }
-        let indentation = (0..<indentationLevel)
-            .map { _ in "\t" }
-            .joined()
+        let indentation = createIndentation(indentationLevel)
         return self
             .map { indentation + $0.customInputCallDescription }
             .joined(separator: ",\n")

@@ -51,9 +51,7 @@ extension RepositoryGeneratorPublicModel {
 extension Array<RepositoryGeneratorPublicModel.PathComponent> {
     public func testDescription(_ indentationLevel: UInt = 7) -> String {
         guard !self.isEmpty else { return "" }
-        let indentation = (0..<indentationLevel)
-            .map { _ in "\t" }
-            .joined()
+        let indentation = createIndentation(indentationLevel)
         return self
             .map { indentation + $0.testDescription }
             .joined(separator: ",\n")
