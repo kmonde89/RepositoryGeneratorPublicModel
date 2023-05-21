@@ -8,7 +8,7 @@
 import Foundation
 
 extension RepositoryGeneratorPublicModel {
-    public struct Response {
+    public struct Response: Codable {
         public let outputDTO: String?
         
         public init(outputDTO: String?) {

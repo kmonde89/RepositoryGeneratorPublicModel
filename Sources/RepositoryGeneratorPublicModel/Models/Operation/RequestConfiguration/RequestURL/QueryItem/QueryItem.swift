@@ -8,8 +8,8 @@
 import Foundation
 
 extension RepositoryGeneratorPublicModel {
-    public struct QueryItem {
-        public enum Value {
+    public struct QueryItem: Codable {
+        public enum Value: Codable {
             case parameter(Parameter)
             case string(String)
             

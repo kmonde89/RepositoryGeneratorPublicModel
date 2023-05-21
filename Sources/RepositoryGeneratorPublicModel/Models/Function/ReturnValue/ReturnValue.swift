@@ -8,7 +8,7 @@
 import Foundation
 
 extension RepositoryGeneratorPublicModel {
-    public enum ReturnValue {
+    public enum ReturnValue: Codable {
         case publisher(output: String, error: String)
         case standard(type: String)
         

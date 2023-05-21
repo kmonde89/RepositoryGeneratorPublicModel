@@ -8,7 +8,7 @@
 import Foundation
 
 extension RepositoryGeneratorPublicModel {
-    public struct Operation {
+    public struct Operation: Codable {
         public let function: Function
         public let requestConfiguration: RequestConfiguration
         public let response: Response

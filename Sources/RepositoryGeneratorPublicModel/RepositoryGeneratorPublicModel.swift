@@ -1,6 +1,10 @@
 public struct RepositoryGeneratorPublicModel {
     public init() {
     }
+    
+    enum ModelError: Error {
+        case unknownParameter
+    }
 }
 
 public func createPlaceHolder(_ text: String) -> String {

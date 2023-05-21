@@ -8,13 +8,27 @@
 import Foundation
 
 extension RepositoryGeneratorPublicModel {
-    public struct RequestURL {
+    public struct RequestURL: Codable {
         public let pathComponents: [PathComponent]
         public let queryItems: [QueryItem]?
         
         public init(pathComponents: [PathComponent], queryItems: [QueryItem]?) {
             self.pathComponents = pathComponents
             self.queryItems = queryItems
+        }
+        
+        public static func getComponents(path: String, parameters: [Parameter]) -> [PathComponent] {
+            do {
+                let components = path.components(separatedBy: "/")
+                if !components.isEmpty {
+                    return try components.map { try PathComponent.init($0, parameters: parameters) }
+                } else {
+                    let value = [try PathComponent.init(path, parameters: parameters)]
+                    return value
+                }
+            } catch {
+                return []
+            }
         }
 
         public func exportPath() -> String {

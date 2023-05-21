@@ -8,7 +8,7 @@
 import Foundation
 
 extension RepositoryGeneratorPublicModel {
-    public enum HTTPMethod: String, CaseIterable {
+    public enum HTTPMethod: String, CaseIterable, Codable {
         case get
         case post
         case put

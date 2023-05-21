@@ -8,7 +8,7 @@
 import Foundation
 
 extension RepositoryGeneratorPublicModel {
-    public struct RequestConfiguration {
+    public struct RequestConfiguration: Codable {
         public let inputDTOType: String?
         public let method: HTTPMethod
         public let isAuthnetificated: Bool

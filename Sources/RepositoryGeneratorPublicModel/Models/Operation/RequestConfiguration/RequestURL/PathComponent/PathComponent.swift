@@ -6,11 +6,37 @@
 //
 
 import Foundation
+import RegexBuilder
 
 extension RepositoryGeneratorPublicModel {
-    public enum PathComponent {
+    public enum PathComponent: Codable {
         case string(String)
         case parameter(Parameter)
+        
+        public init(_ text: String, parameters: [Parameter]) throws {
+            let regex = Regex {
+                Anchor.startOfSubject
+                One("{")
+                Capture {
+                    OneOrMore(.any, .reluctant)
+                } transform: { capturedWord in
+                    return "\(capturedWord)"
+                }
+                One("}")
+                Anchor.endOfSubjectBeforeNewline
+            }
+            
+            if case let .some((_, parameterName)) = text.matches(of: regex).first?.output {
+                let parameter = parameters.first { $0.originalName == parameterName }
+                if let parameter {
+                    self = .parameter(parameter)
+                } else {
+                    throw ModelError.unknownParameter
+                }
+            } else {
+                self = .string(text)
+            }
+        }
         
         public var parameter: Parameter? {
             guard case let .parameter(parameter) = self else {

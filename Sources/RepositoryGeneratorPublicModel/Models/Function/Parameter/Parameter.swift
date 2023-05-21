@@ -8,7 +8,7 @@
 import Foundation
 
 extension RepositoryGeneratorPublicModel {
-    public struct Parameter: Hashable {
+    public struct Parameter: Hashable, Codable {
         public let label: String?
         public let name: String
         public let originalName: String

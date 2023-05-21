@@ -8,7 +8,7 @@
 import Foundation
 
 extension RepositoryGeneratorPublicModel {
-    public struct Function {
+    public struct Function: Codable {
         public let name: String
         public let parameters: [Parameter]
         public let returnValue: ReturnValue
