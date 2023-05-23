@@ -11,13 +11,13 @@ extension RepositoryGeneratorPublicModel {
     public struct RequestConfiguration: Codable {
         public let inputDTOType: String?
         public let method: HTTPMethod
-        public let isAuthnetificated: Bool
+        public let isAuthentificated: Bool
         public let requestURL: RequestURL
         
-        public init(inputDTOType: String?, method: HTTPMethod, isAuthnetificated: Bool, requestURL: RequestURL) {
+        public init(inputDTOType: String?, method: HTTPMethod, isAuthentificated: Bool, requestURL: RequestURL) {
             self.inputDTOType = inputDTOType
             self.method = method
-            self.isAuthnetificated = isAuthnetificated
+            self.isAuthentificated = isAuthentificated
             self.requestURL = requestURL
         }
 
@@ -29,7 +29,7 @@ extension RepositoryGeneratorPublicModel {
         }
 
         public func isAuthentificatedDescription() -> String {
-            if self.isAuthnetificated {
+            if self.isAuthentificated {
                 return "true"
             } else {
                 return "false"
