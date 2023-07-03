@@ -8,7 +8,7 @@
 import Foundation
 
 extension RepositoryGeneratorPublicModel {
-    struct GlobalModel: Codable {
+    public struct GlobalModel: Codable {
         public let operations: [Operation]
         public let schemaObjects: [SchemaObject]
     }

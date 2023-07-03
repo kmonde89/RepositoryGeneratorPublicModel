@@ -24,5 +24,23 @@ extension RepositoryGeneratorPublicModel {
         public let reference: String?
         public let minimum: Int?
         public let items: SchemaObject?
+
+        public init(name: String? = nil, customName: String? = nil, ownReference: String? = nil, type: String? = nil, customType: String? = nil, description: String? = nil, format: String? = nil, enumeration: [String]? = nil, propertyKey: String? = nil, customPropertyKey: String? = nil, childrens: [SchemaObject] = [], required: [String]? = nil, reference: String? = nil, minimum: Int? = nil, items: SchemaObject? = nil) {
+            self.name = name
+            self.customName = customName
+            self.ownReference = ownReference
+            self.type = type
+            self.customType = customType
+            self.description = description
+            self.format = format
+            self.enumeration = enumeration
+            self.propertyKey = propertyKey
+            self.customPropertyKey = customPropertyKey
+            self.childrens = childrens
+            self.required = required
+            self.reference = reference
+            self.minimum = minimum
+            self.items = items
+        }
     }
 }
