@@ -22,10 +22,11 @@ extension RepositoryGeneratorPublicModel {
         public let childrens: [SchemaObject]
         public let required: [String]?
         public let reference: String?
-        public let minimum: Int?
+        public let minimum: Double?
+        public let maximum: Double?
         public let items: SchemaObject?
 
-        public init(name: String? = nil, customName: String? = nil, ownReference: String? = nil, type: String? = nil, customType: String? = nil, description: String? = nil, format: String? = nil, enumeration: [String]? = nil, propertyKey: String? = nil, customPropertyKey: String? = nil, childrens: [SchemaObject] = [], required: [String]? = nil, reference: String? = nil, minimum: Int? = nil, items: SchemaObject? = nil) {
+        public init(name: String? = nil, customName: String? = nil, ownReference: String? = nil, type: String? = nil, customType: String? = nil, description: String? = nil, format: String? = nil, enumeration: [String]? = nil, propertyKey: String? = nil, customPropertyKey: String? = nil, childrens: [SchemaObject] = [], required: [String]? = nil, reference: String? = nil, minimum: Double? = nil, maximum: Double? = nil, items: SchemaObject? = nil) {
             self.name = name
             self.customName = customName
             self.ownReference = ownReference
@@ -40,6 +41,7 @@ extension RepositoryGeneratorPublicModel {
             self.required = required
             self.reference = reference
             self.minimum = minimum
+            self.maximum = maximum
             self.items = items
         }
     }
