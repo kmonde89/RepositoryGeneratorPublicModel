@@ -40,12 +40,13 @@ extension RepositoryGeneratorPublicModel {
         
         public var customInputCallDescription: String {
             guard let label else {
-                return "\(self.name): <#T## enter value ###".appending(">")
+                return "\(self.name): " + createPlaceHolder("enter value")
             }
+
             guard label == "_" else {
-                return "\(label): <#T## enter value ###".appending(">")
+                return "\(label): " + createPlaceHolder("enter value")
             }
-            return "<#T## enter value ###".appending(">")
+            return createPlaceHolder("enter value")
         }
     }
 }

@@ -50,8 +50,8 @@ final class ReturnValueTests: XCTestCase {
             then: { returnValue in
                 XCTAssertEqual(
                     returnValue.publisherMapError,
-                    ".mapError { <#T## insert error mapping to CustomError###> }",
-                    "returnValue.publisherMapError should be equal to '.mapError { <#T## insert error mapping to CustomError###> }'")
+                    ".mapError { <#T## insert error mapping to CustomError ###> }",
+                    "returnValue.publisherMapError should be equal to '.mapError { <#T## insert error mapping to CustomError ###> }'")
             })
     }
 

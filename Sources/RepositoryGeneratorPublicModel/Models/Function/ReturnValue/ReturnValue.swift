@@ -28,7 +28,8 @@ extension RepositoryGeneratorPublicModel {
             guard error != "Error" else {
                 return ".mapError { $0 as Error }"
             }
-            return ".mapError { <#T## insert error mapping to \(error)###".appending("> }")
+
+            return ".mapError { \(createPlaceHolder("insert error mapping to \(error)")) }"
         }
         
         public var resultTypeDecription: String {

@@ -36,7 +36,7 @@ final class QueryItemTests: XCTestCase {
         try self.createTestCase(
             given: .init(key: "x", value: .parameter(.init(label: nil, name: "name", type: "Int"))),
             then: { queryItem in
-                XCTAssertEqual(queryItem.testDescription, ".init(key: \"x\", value: \"<#T## enter name###>\")")
+                XCTAssertEqual(queryItem.testDescription, ".init(key: \"x\", value: \"<#T## enter name ###>\")")
             })
     }
 

@@ -68,7 +68,7 @@ extension RepositoryGeneratorPublicModel {
             case .string(let text):
                 return "\"\(text)\""
             case .parameter(let parameter):
-                return "<#T## enter \(parameter.name) ###".appending(">")
+                return createPlaceHolder("enter \(parameter.name)")
             }
         }
     }

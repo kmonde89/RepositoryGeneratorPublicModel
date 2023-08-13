@@ -43,7 +43,8 @@ extension RepositoryGeneratorPublicModel {
             case .string(let text):
                 return ".init(key: \"\(self.key)\", value: \"\(text)\")"
             case .parameter(let parameter):
-                return ".init(key: \"\(self.key)\", value: \"<#T## enter \(parameter.name)###".appending(">\")")
+
+                return ".init(key: \"\(self.key)\", value: \"\(createPlaceHolder("enter \(parameter.name)"))\")"
             }
         }
     }
