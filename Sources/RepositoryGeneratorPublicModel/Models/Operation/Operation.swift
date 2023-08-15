@@ -11,12 +11,12 @@ extension RepositoryGeneratorPublicModel {
     public struct Operation: Codable {
         public let function: Function
         public let requestConfiguration: RequestConfiguration
-        public let response: Response
+        public let responses: [Response]
         
-        public init(function: Function, requestConfiguration: RequestConfiguration, response: Response) {
+        public init(function: Function, requestConfiguration: RequestConfiguration, responses: [Response]) {
             self.function = function
             self.requestConfiguration = requestConfiguration
-            self.response = response
+            self.responses = responses
         }
     }
 }
