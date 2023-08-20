@@ -9,16 +9,32 @@ import Foundation
 
 extension RepositoryGeneratorPublicModel {
     public struct Parameter: Hashable, Codable {
+        public static func == (lhs: RepositoryGeneratorPublicModel.Parameter, rhs: RepositoryGeneratorPublicModel.Parameter) -> Bool {
+            lhs.label == rhs.label &&
+            lhs.name == rhs.name &&
+            lhs.originalName == rhs.originalName &&
+            lhs.type == rhs.type
+        }
+
+        public func hash(into hasher: inout Hasher) {
+            hasher.combine(self.label)
+            hasher.combine(self.name)
+            hasher.combine(self.originalName)
+            hasher.combine(self.type)
+        }
+
         public let label: String?
         public let name: String
         public let originalName: String
         public let type: String
+        public let schemaObject: SchemaObject?
         
-        public init(label: String?, name: String, originalName: String? = nil, type: String) {
+        public init(label: String?, name: String, originalName: String? = nil, type: String, schemaObject: SchemaObject? = nil) {
             self.label = label
             self.name = name
             self.originalName = originalName ?? name
             self.type = type
+            self.schemaObject = schemaObject
         }
         
         public var signatureDescription: String {
