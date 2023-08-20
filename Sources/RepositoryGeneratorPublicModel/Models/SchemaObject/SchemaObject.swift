@@ -44,5 +44,12 @@ extension RepositoryGeneratorPublicModel {
             self.maximum = maximum
             self.items = items
         }
+
+        public var typeDescription: String {
+            if self.type?.lowercased() == "array", let items =  self.items {
+                return "[\(items.customType ?? items.type ?? createPlaceHolder("Enter type"))]"
+            }
+            return self.customType ?? self.type ?? createPlaceHolder("Enter type")
+        }
     }
 }

@@ -41,10 +41,7 @@ extension RepositoryGeneratorPublicModel {
             guard let schemaObject else {
                 return self.type
             }
-            if schemaObject.type?.lowercased() == "array", let items =  schemaObject.items {
-                return "[\(items.customType ?? items.type ?? createPlaceHolder("Enter type"))]"
-            }
-            return schemaObject.customType ?? schemaObject.type ?? createPlaceHolder("Enter type")
+            return schemaObject.typeDescription
         }
         
         public var signatureDescription: String {
