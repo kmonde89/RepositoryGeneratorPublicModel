@@ -46,10 +46,14 @@ extension RepositoryGeneratorPublicModel {
         }
 
         public var typeDescription: String {
+            self.getType("Enter type")
+        }
+
+        public func getType(_ placeholder: String) -> String {
             if self.type?.lowercased() == "array", let items =  self.items {
-                return "[\(items.customType ?? items.type ?? createPlaceHolder("Enter type"))]"
+                return "[\(items.customType ?? items.type ?? createPlaceHolder(placeholder))]"
             }
-            return self.customType ?? self.type ?? createPlaceHolder("Enter type")
+            return self.customType ?? self.type ?? createPlaceHolder(placeholder)
         }
     }
 }
