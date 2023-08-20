@@ -60,6 +60,8 @@ extension RepositoryGeneratorPublicModel {
             if self.type?.lowercased() == "array", let items =  self.items {
 
                 return "[\(items.getType(placeholder, searchReferencedObject: searchReferencedObject))]"
+            } else if self.type?.lowercased() == "object" {
+                return self.customName ?? self.name ?? createPlaceHolder(placeholder)
             }
             return self.customType ?? self.type ?? createPlaceHolder(placeholder)
         }
