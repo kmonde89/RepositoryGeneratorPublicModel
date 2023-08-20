@@ -36,6 +36,12 @@ extension RepositoryGeneratorPublicModel {
                 .map { $0.exportDescription }
                 .joined(separator: ", ")
         }
+
+        public func exportPathForTest() -> String {
+            return self.pathComponents
+                .map { $0.testDescription }
+                .joined(separator: ", ")
+        }
         
         public func exportQueryItems() -> String {
             guard let queryItems else { return "nil" }
