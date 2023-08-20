@@ -46,12 +46,20 @@ extension RepositoryGeneratorPublicModel {
         }
 
         public var typeDescription: String {
-            self.getType("Enter type")
+            self.getType("Enter type") { _ in return nil}
         }
 
-        public func getType(_ placeholder: String) -> String {
+        public func getType(_ placeholder: String,
+                            searchReferencedObject: (_ reference: String) -> SchemaObject?) -> String {
+            if let reference {
+                guard let referencedObject = searchReferencedObject(reference) else {
+                    return  createPlaceHolder(placeholder)
+                }
+                return referencedObject.customType ?? referencedObject.type ?? createPlaceHolder(placeholder)
+            }
             if self.type?.lowercased() == "array", let items =  self.items {
-                return "[\(items.customType ?? items.type ?? createPlaceHolder(placeholder))]"
+
+                return "[\(items.getType(placeholder, searchReferencedObject: searchReferencedObject))]"
             }
             return self.customType ?? self.type ?? createPlaceHolder(placeholder)
         }

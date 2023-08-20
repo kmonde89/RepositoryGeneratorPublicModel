@@ -50,6 +50,20 @@ extension RepositoryGeneratorPublicModel {
             }
             return "\(label) \(self.name): \(self.getTypeDescription)"
         }
+
+        func getTypeDescription(_ searchReferencedObject: (_ reference: String) -> SchemaObject?) -> String {
+            guard let schemaObject else {
+                return self.type
+            }
+            return schemaObject.getType("Enter type", searchReferencedObject: searchReferencedObject)
+        }
+
+        func getSignatureDescription(_ searchReferencedObject: (_ reference: String) -> SchemaObject?) -> String {
+            guard let label else {
+                return "\(self.name): \(self.getTypeDescription(searchReferencedObject))"
+            }
+            return "\(label) \(self.name): \(self.getTypeDescription(searchReferencedObject))"
+        }
         
         public var callDescription: String {
             guard let label else {
