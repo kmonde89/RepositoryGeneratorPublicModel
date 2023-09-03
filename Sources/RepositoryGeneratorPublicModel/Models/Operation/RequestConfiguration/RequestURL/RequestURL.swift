@@ -19,6 +19,8 @@ extension RepositoryGeneratorPublicModel {
         
         public static func getComponents(path: String, parameters: [Parameter]) -> [PathComponent] {
             do {
+                var path = path
+                path.trimPrefix("/")
                 let components = path.components(separatedBy: "/")
                 if !components.isEmpty {
                     return try components.map { try PathComponent.init($0, parameters: parameters) }
