@@ -3,7 +3,7 @@ A Model to generate *repository* and *data transfert object* using model create 
 
 ## Installing
 
-### [XcodeGen](https://github.com/yonaskolb/XcodeGen))
+### [XcodeGen](https://github.com/yonaskolb/XcodeGen)
 
 Install Xcodegen then add the following file to a folder
 
