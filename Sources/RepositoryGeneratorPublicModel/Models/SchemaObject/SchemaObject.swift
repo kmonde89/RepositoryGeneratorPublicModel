@@ -9,14 +9,23 @@ import Foundation
 
 extension RepositoryGeneratorPublicModel {
     public class SchemaObject: Codable {
+        /// Object name  from the openAPI document
         public let name: String?
+        /// Object custom name (alias set using RepoScribe)
         public let customName: String?
+        /// Object reference  from the openAPI document
         public let ownReference: String?
+        /// Object type  from the openAPI document
         public let type: String?
+        /// Object custom type (alias set using RepoScribe)
         public let customType: String?
+        /// Object description from the openAPI document
         public let description: String?
+        /// Object format from the openAPI document
         public let format: String?
+        /// Object enumeration from the openAPI document
         public let enumeration: [String]?
+        /// Object propertyKey from the openAPI document
         public let propertyKey: String?
         public let customPropertyKey: String?
         public let childrens: [SchemaObject]
