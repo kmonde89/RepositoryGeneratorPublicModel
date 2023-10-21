@@ -2,6 +2,10 @@
 A Model to generate *repository* and *data transfert object* using model create via RepoScribe.
 The RepoScribe last version is available [here](https://github.com/kmonde89/RepositoryGeneratorPublicModel/releases/tag/0.0.18).
 
+## Documentation
+
+[Click here to access this package reference documentation](https://kmonde89.github.io/RepositoryGeneratorPublicModel/documentation/repositorygeneratorpublicmodel)
+
 ## Installing
 
 ### [XcodeGen](https://github.com/yonaskolb/XcodeGen)
