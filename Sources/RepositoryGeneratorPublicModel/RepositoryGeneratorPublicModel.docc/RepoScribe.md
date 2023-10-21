@@ -55,7 +55,7 @@ To set additional information, type (**⌘** + **,**) then go to the **Additiona
 ## Link your generating script
 
 To link your generating script, type (**⌘** + **,**) then go to the **Export** tab.
-There you will find a single button to select you script file. (Guide to create your script).
+There you will find a single button to select your script. (Guide to create your script).
 
 ### Featured
 
