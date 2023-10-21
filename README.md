@@ -45,10 +45,8 @@ import Foundation
 import ArgumentParser
 import RepositoryGeneratorPublicModel
 
-struct Repeat: ParsableCommand {
-    @Flag(help: "Include a counter with each repetition.")
-    var includeCounter = false
-
+@main
+struct CommandLineToolName: ParsableCommand {
     @Argument(help: "Repository title")
     var repositoryTitle: String
 
@@ -66,8 +64,6 @@ struct Repeat: ParsableCommand {
         print("hello")
     }
 }
-
-Repeat.main()
 ```
 
 Then create the base for the command line project running this command
