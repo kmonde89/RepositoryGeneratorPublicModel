@@ -1,6 +1,6 @@
 # RepositoryGeneratorPublicModel
 A Model to generate *repository* and *data transfert object* using model create via RepoScribe.
-The RepoScribe last version is available [here](https://github.com/kmonde89/RepositoryGeneratorPublicModel/releases/tag/0.0.18).
+The RepoScribe last version is available [here](https://github.com/kmonde89/RepositoryGeneratorPublicModel/releases/tag/0.0.21).
 
 ## Documentation
 
