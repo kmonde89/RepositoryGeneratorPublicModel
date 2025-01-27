@@ -9,16 +9,26 @@ import Foundation
 
 extension RepositoryGeneratorPublicModel {
     public struct RequestConfiguration: Codable {
+        public enum CodingKeys: CodingKey {
+            case inputDTOType
+            case inputSchemaObject
+            case method
+            case isAuthentificated
+            case requestURL
+        }
         public let inputDTOType: String?
         public let inputSchemaObject: SchemaObject?
-        public let method: HTTPMethod
+        public let method: String
+        public var httpMethod: HTTPMethod {
+            .init(rawValue: method) ?? .trace
+        }
         public let isAuthentificated: Bool
         public let requestURL: RequestURL
         
         public init(inputDTOType: String?, inputSchemaObject: SchemaObject? = nil, method: HTTPMethod, isAuthentificated: Bool, requestURL: RequestURL) {
             self.inputDTOType = inputDTOType
             self.inputSchemaObject = inputSchemaObject
-            self.method = method
+            self.method = method.rawValue
             self.isAuthentificated = isAuthentificated
             self.requestURL = requestURL
         }
