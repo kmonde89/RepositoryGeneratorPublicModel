@@ -9,7 +9,27 @@ import Foundation
 
 extension RepositoryGeneratorPublicModel {
     public struct QueryItem: Codable {
-        public enum Value: Codable {
+        public enum Value: Codable, CustomReflectable {
+            public var customMirror: Mirror {
+                switch self {
+                case .parameter(let parameter):
+                    Mirror(
+                        self,
+                        children: .init(
+                            dictionaryLiteral: ("parameter", parameter)
+                        )
+                    )
+                case .string(let string):
+                    Mirror(
+                        self,
+                        children: .init(
+                            dictionaryLiteral: ("string", string)
+                        )
+                    )
+                }
+
+            }
+
             case parameter(Parameter)
             case string(String)
             

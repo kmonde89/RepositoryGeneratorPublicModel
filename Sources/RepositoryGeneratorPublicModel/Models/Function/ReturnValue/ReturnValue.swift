@@ -8,23 +8,15 @@
 import Foundation
 
 extension RepositoryGeneratorPublicModel {
-    public enum ReturnValue: Codable {
-        case publisher(output: String, error: String)
-        case standard(type: String)
+    public struct ReturnValue: Codable {
+        let output: String
+        let error: String
         
         public var description: String {
-            switch self {
-            case .publisher(let output, let error):
-                return "AnyPublisher<\(output), \(error)>"
-            case .standard(let type):
-                return type
-            }
+            return "AnyPublisher<\(output), \(error)>"
         }
         
         public var publisherMapError: String {
-            guard case let .publisher(_, error) = self else {
-                return ""
-            }
             guard error != "Error" else {
                 return ".mapError { $0 as Error }"
             }
@@ -33,9 +25,6 @@ extension RepositoryGeneratorPublicModel {
         }
         
         public var resultTypeDecription: String {
-            guard case let .publisher(output, error) = self else {
-                return ""
-            }
             return "Result<\(output), \(error)>"
         }
     }

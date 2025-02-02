@@ -9,7 +9,16 @@ import Foundation
 import RegexBuilder
 
 extension RepositoryGeneratorPublicModel {
-    public enum PathComponent: Codable {
+    public enum PathComponent: Codable, CustomReflectable {
+        public var customMirror: Mirror {
+            switch self {
+            case .string(let string):
+                    .init(self, children: .init(dictionaryLiteral: ("string", string)))
+            case .parameter(let parameter):
+                    .init(self, children: .init(dictionaryLiteral: ("parameter", parameter)))
+            }
+        }
+
         case string(String)
         case parameter(Parameter)
         

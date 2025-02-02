@@ -8,7 +8,11 @@
 import Foundation
 
 extension RepositoryGeneratorPublicModel {
-    public enum HTTPMethod: String, CaseIterable, Codable {
+    public enum HTTPMethod: String, CaseIterable, Codable, CustomReflectable {
+        public var customMirror: Mirror {
+            .init(reflecting: self.rawValue)
+        }
+
         case get
         case post
         case put
